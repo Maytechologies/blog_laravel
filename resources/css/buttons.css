@@ -1,0 +1,32 @@
+.btn-w{
+
+    @apply font-bold text-white hover:text-black py-2 px-4 rounded cursor-pointer;
+
+}
+
+
+.btn-b{
+    @apply font-bold text-black py-2 px-4 rounded cursor-pointer;
+}
+
+
+.btn-red{
+    @apply bg-red-600 hover:bg-red-400;
+}
+
+.btn-blue{
+    @apply bg-blue-600 hover:bg-blue-400;
+}
+
+.btn-green{
+    @apply bg-green-600 hover:bg-green-400;
+}
+
+.btn-yellow{
+    @apply bg-yellow-800 hover:bg-yellow-500;
+}
+
+.btn-gray{
+    @apply bg-gray-800 hover:bg-gray-500;
+}
+
