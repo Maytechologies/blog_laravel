@@ -55,7 +55,7 @@ class CreatePost extends Component
 
         /* Emitimos un evento al componente ShowPost con nombre alert */
         
-        $this->emit('alert');
+        $this->emit('alert', 'Registro Efectuado...!');
 
     }
 

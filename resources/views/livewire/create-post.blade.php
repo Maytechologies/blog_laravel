@@ -1,9 +1,13 @@
 <div>
-    <x-jet-danger-button wire:click="$set('open', true)">
     
-        Nuevo Post   {{-- agregamos componente de jetstring boton --}}
+        <x-jet-button wire:click="$set('open', true)"  class="btn-green">
+    
+            Nuevo Post   {{-- agregamos componente de jetstring boton --}}
+    
+       </x-jet-button>
+    
 
-   </x-jet-danger-button>
+   
 
 
                           {{-- Agregamos la sesiones de nuestro modal aplicando Slot --}}
@@ -58,9 +62,9 @@
             </x-jet-danger-button>
 
 
-            <x-jet-button wire:click='save'> {{-- aplicamos evento save, que vincularemos en el controlador CreatePOst --}}
+            <x-jet-secondary-button wire:click='save'> {{-- aplicamos evento save, que vincularemos en el controlador CreatePOst --}}
                 Registrar
-            </x-jet-button>
+            </x-jet-secondary-button>
             
         </x-slot>
         
