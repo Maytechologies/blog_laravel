@@ -1114,6 +1114,10 @@ select {
 	margin-top: -0.5rem;
 	margin-bottom: -0.5rem;
 }
+.my-2 {
+	margin-top: 0.5rem;
+	margin-bottom: 0.5rem;
+}
 .ml-3 {
 	margin-left: 0.75rem;
 }
@@ -1697,6 +1701,9 @@ select {
 }
 .font-semibold {
 	font-weight: 600;
+}
+.font-bold {
+	font-weight: 700;
 }
 .uppercase {
 	text-transform: uppercase;

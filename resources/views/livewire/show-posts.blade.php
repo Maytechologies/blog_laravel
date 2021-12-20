@@ -4,12 +4,26 @@
 
     <x-table>
 
-        <div class="px-6 py-4 flex items">
-            {{-- <input type="text" wire:model="search"> --}}
+        <div class="px-6 py-4 flex items-center">
+            
+             <div class="flex px-6 py-4 items-center"> {{-- insertamos el select y sus opciones numero de posts --}}
+                 <span class="px-2">Mostrar </span>
+                 <select wire:model="cantidad" class="form-control">
+                     <option value="5">05</option>
+                     <option value="10">10</option>
+                     <option value="20">20</option>
+                     <option value="50">50</option>
+                 </select>
+                 <span class="px-2"> Post</span>
+             </div>
 
-            <x-jet-input type="text" wire:model="search" placeholder="Busqueda" class="flex-1 mr-2 text-gray-800" />
 
-            @livewire('create-post') 
+
+            <x-jet-input class="flex-1 mx-2 text-gray-800"  placeholder="Busqueda" type="text" wire:model="search"  />
+
+            
+                @livewire('create-post') 
+            
 
         </div>
 

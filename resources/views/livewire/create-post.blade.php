@@ -1,10 +1,14 @@
 <div>
     
-        <x-jet-button wire:click="$set('open', true)"  class="btn-green">
-    
-            Nuevo Post   {{-- agregamos componente de jetstring boton --}}
-    
-       </x-jet-button>
+       <div class="mx-4">
+            <x-jet-button wire:click="$set('open', true)"  class="btn-green">
+        
+            
+                Nuevo Post   {{-- agregamos componente de jetstring boton --}}
+            
+        
+        </x-jet-button>
+       </div>
     
 
    
