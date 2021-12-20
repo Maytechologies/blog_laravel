@@ -4,9 +4,11 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\Post;
+use Livewire\WithFileUploads;
 
 class ShowPosts extends Component
 {
+    use WithFileUploads;
 
     public $search;
     public $sort = 'id';

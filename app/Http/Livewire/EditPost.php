@@ -3,13 +3,20 @@
 namespace App\Http\Livewire;
 
 use App\Models\Post;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
+use Livewire\WithFileUploads;
+
 
 class EditPost extends Component
 {
+
+    use WithFileUploads;
+
+
     public $open = false;
 
-    public $post; /* declaramos una nueva propiedad */
+    public $post, $image, $identificador; /* declaramos las nuevas propiedades propiedad */
 
     
     public function mount(Post $post){ /* le pasamos los datos del metodo post a la propiedad pos */
@@ -23,17 +30,30 @@ class EditPost extends Component
 
     public function save(){
 
+      if ($this->image) {
+
+        Storage::delete([$this->post->image]); /* Si el post cuenta con una imagen ELIMINARLA */
+ 
+        $this->emit('loanding');
+
+        $this->post->image = $this->image->store('post'); /* asignar la nueva imagen que se envia al post */
+          
+      }
+
+       
         $this->validate();
 
         $this->post->save();
         
-        $this->reset();
+        $this->reset('open', 'image');
+
+        $this ->identificador =rand();
 
         /* $this->emitTo('show-posts', 'render'); */
 
         $this->emit('reseteo');
 
-        $this->emit('alert', 'Actualización Efectuada con Exito..');
+        $this->emit('alert_up');
 
     }
 

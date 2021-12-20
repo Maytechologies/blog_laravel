@@ -56,6 +56,28 @@
                 )
             })
         </script>
+         <script>
+            livewire.on('alert_up', function(){
+                Swal.fire(
+                'Actualizacion Exitosa!',
+                'Click para continuar!',
+                'success'
+                )
+            })
+        </script>
+
+        <script>
+             livewire.on('loanding', function(){
+                Swal.fire({
+                title: 'Please Wait !',
+                html: 'data uploading',// add html attribute if you want or remove
+                allowOutsideClick: false,
+                onBeforeOpen: () => {
+                    Swal.showLoading()
+                },
+            });
+        }
+        </script>
 
     </body>
 </html>

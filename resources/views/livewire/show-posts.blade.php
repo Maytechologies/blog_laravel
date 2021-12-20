@@ -29,6 +29,11 @@
                         </th>
 
                         <th scope="col"
+                            class="px-2 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider">
+                            Imagen 
+                        </th>
+
+                        <th scope="col"
                             class=" cursor-pointer px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider"
                             wire:click="ordena('title')">
                             Titulo <i class="fas fa-sort font-medium text-gray-400 py-3"></i>
@@ -63,23 +68,29 @@
 
 
 
-                            <td class="px-6 py-4 ">
+                            <td class="px-6 py-4 font-bold">
                                 <div class="text-sm text-gray-400">{{ $post->id }} </div>
 
                             </td>
 
+                            <td class="px-6 py-4 font-bold">
+                                <div class="text-sm text-gray-400  w-10 h-10">
+                                    <img class="rounded-full" src="{{Storage::url($post->image)}}"> </div>
 
-                            <td class="px-6 py-4 ">
+                            </td>
+
+
+                            <td class="px-6 py-4 font-bold">
                                 <div class="text-sm text-gray-400">{{ $post->title }} </div>
                             </td>
 
 
-                            <td class="px-6 py-4">
+                            <td class="px-6 py-4 font-bold">
                                 <div class="text-sm text-gray-400">{{ $post->content }} </div>
                             </td>
 
 
-                            <td class="px-6 py-4">
+                            <td class="px-6 py-4 font-bold">
                                @livewire('edit-post', ['post' => $post], key($post->id))
                             </td>
                         </tr>
