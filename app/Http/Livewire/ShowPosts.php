@@ -5,10 +5,13 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\Post;
 use Livewire\WithFileUploads;
+use Livewire\WithPagination;
+
 
 class ShowPosts extends Component
 {
     use WithFileUploads;
+    use WithPagination;
 
     public $search;
     public $sort = 'id';
@@ -24,7 +27,7 @@ class ShowPosts extends Component
         $posts = Post::where('title', 'like', '%'. $this->search . '%')   /* EXTRAEMOS TODOS LOS REGISTRO QUE SE ENCUENTRAN EN LA TABLA POST */
                        ->orWhere('content', 'like', '%'. $this->search . '%')
                        ->orderBy($this->sort, $this->direction)
-                       ->get(); /* QUE CUMPLAN CON LA CONDICION DE BUSQUEDA */
+                       ->paginate(5); /* QUE CUMPLAN CON LA CONDICION DE BUSQUEDA */
 
         return view('livewire.show-posts', compact('posts')); /* RENDERISAMOS EL CODIGO QUE SE EXPONE EN -> SHOW-POST.BLADE.PHP */
     }
@@ -45,7 +48,13 @@ class ShowPosts extends Component
             $this->sort = $sort;
             $this->direction = 'desc';
         }
+
+
         
+    }
+
+    public function updatingSearch(){ /* Reseteamos la paginación en la url para lograr una busqueda total */
+        $this->resetPage();
     }
 
 

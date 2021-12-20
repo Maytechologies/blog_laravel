@@ -23,7 +23,7 @@
 
                     <tr>
                         <th scope="col"
-                            class=" cursor-pointer px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider"
+                            class=" cursor-pointer px-4 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider"
                             wire:click="ordena('id')">
                             ID <i class="fas fa-sort font-medium text-gray-400 py-2"></i>
                         </th>
@@ -110,6 +110,17 @@
             </div>
 
         @endif
+
+        {{-- aplicamos la paginación de nuestros post --}}
+
+        @if ($posts->hasPages()) {{-- si la busqueda requiere de mas de 1 pagina muestra el paginador --}}
+
+        <div class="px-6 py-3">
+            {{$posts->links()}}
+        </div>
+            
+        @endif
+
 
     </x-table>
 
