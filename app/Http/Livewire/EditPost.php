@@ -30,18 +30,18 @@ class EditPost extends Component
 
     public function save(){
 
+
+      $this->validate();
+
       if ($this->image) {
 
         Storage::delete([$this->post->image]); /* Si el post cuenta con una imagen ELIMINARLA */
  
-        $this->emit('loanding');
 
         $this->post->image = $this->image->store('post'); /* asignar la nueva imagen que se envia al post */
           
       }
 
-       
-        $this->validate();
 
         $this->post->save();
         
